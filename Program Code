@@ -1,0 +1,42 @@
+#include<16F73.h> 
+#use delay(clock=20M) 
+#include "DHT11.e" 
+#include "esp8266.c" 
+int i=0; 
+char data1[45]: 
+char data[25]: 
+char A[]={":1"}: 
+char B[]={":0"}: 
+char C[]={":g"}; 
+void main() 
+{ 
+unsigned long soil=0: 
+unsigned char state=0, 
+init_wifi() 
+{ 
+DHT11_init(); 
+while(TRUE)//system ON 
+{ 
+i=0; 
+data[i]=0; 
+fgets(data, WIFI); 
+if(strstr(data,A)) 
+{ 
+output_low(PIN_C7); 
+sprintf(data1,"Motor:ON\r\n"); fprintf(WIFI,"%s", datal); 
+} 
+fprintf(WIFI,"%s", datal); 
+} 
+else if(strstr(data,B)) 
+{ 
+output_high(PIN_C7); 
+sprintf(data1, "Motor:OFF\r\n"); 
+fprintf(WIFI,"%s", datal); 
+} 
+else if(strstr(data,G)) 
+{ 
+Soil=Read ADC(); 
+sprintf(data1."T:%2.2f DegC, H:%2.2fPerc, Moist:%Lu Perc\r\n", 
+dhtt.dhth.soil); 
+fprintf(WIFI,"%s", datal);} 
+delay_ms(700) }
